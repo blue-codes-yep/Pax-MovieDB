@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import './App.css';
 import logo from "./images/PAXMDB.svg";
 import MovieList from './components/MovieList';
+import MovieDetail from './components/MovieDetail';
+
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 
 const App = () => (
@@ -15,14 +17,11 @@ const App = () => (
       </header>
       <Switch>
         <Route exact path="/" component={MovieList} />
-        <Route path="/test" component={Test} />
+        <Route path="/:id" component={MovieDetail} />
       </Switch>
     </div>
   </Router>
 );
 
-const Test = () => (
-  <h1>test</h1>
-);
 
 export default App;
