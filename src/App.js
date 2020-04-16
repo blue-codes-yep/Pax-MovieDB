@@ -2,38 +2,27 @@
 import React, { Component } from 'react';
 import './App.css';
 import logo from "./images/PAXMDB.svg";
-import Movie from './components/Movie';
+import MovieList from './components/MovieList';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 
-
-class App extends Component {
-
-  state = {
-    movies: [],
-  }
-
-  async componentDidMount() {
-    try {
-      const res = await fetch('https://api.themoviedb.org/3/discover/movie?api_key=9e0f685feeb8c6b73e1db5af73029cec&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1');
-      const movies = await res.json();
-
-      this.setState({
-        movies: movies.results,
-      });
-    } catch (e) {
-      console.log(e);
-    }
-  }
-
-  render() {
-    return (
-      <div className="App" >
-        <header className="App-header">
+const App = () => (
+  <Router>
+    <div className="App" >
+      <header className="App-header">
+        <Link to="/">
           <img src={logo} className="App-logo" alt="logo" />
-        </header>
-        {this.state.movies.map(movie => (<Movie key={movie.id} movie={movie} />))}
-      </div>
-    );
-  }
-}
+        </Link>
+      </header>
+      <Switch>
+        <Route exact path="/" component={MovieList} />
+        <Route path="/test" component={Test} />
+      </Switch>
+    </div>
+  </Router>
+);
 
-export default App
+const Test = () => (
+  <h1>test</h1>
+);
+
+export default App;
