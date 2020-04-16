@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 
 const image = 'http://image.tmdb.org/t/p/w154';
-
+const backdropImage = 'http://image.tmdb.org/t/p/w1280';
 
 class MovieDetail extends Component {
 
@@ -28,8 +28,8 @@ class MovieDetail extends Component {
         const { movie } = this.state;
         return (
             <div>
+                <img src={`${backdropImage}${movie.backdrop_path}`} alt={movie.title} />
                 <img src={`${image}${movie.poster_path}`} alt={movie.title} />
-
                 <h1>{this.state.movie.title}</h1>
                 <h3>{this.state.movie.release_date}</h3>
                 <p>{this.state.movie.overview}</p>
