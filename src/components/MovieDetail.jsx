@@ -1,6 +1,7 @@
 /* eslint-disable react/state-in-constructor */
 import React, { Component } from 'react';
 import { Poster } from './Movie'
+import Overdrive from 'react-overdrive'
 import styled from 'styled-components';
 
 const image = 'http://image.tmdb.org/t/p/w154';
@@ -31,7 +32,9 @@ class MovieDetail extends Component {
 
             <MovieWrapper backdrop={`${backdropImage}${movie.backdrop_path}`}>
                 <MovieInfo>
-                    <Poster src={`${image}${movie.poster_path}`} alt={movie.title} />
+                    <Overdrive id={movie.id}>
+                        <Poster src={`${image}${movie.poster_path}`} alt={movie.title} />
+                    </Overdrive>
                     <div>
                         <h1>{this.state.movie.title}</h1>
                         <h3>{this.state.movie.release_date}</h3>
