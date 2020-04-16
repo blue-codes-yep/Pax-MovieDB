@@ -1,8 +1,8 @@
 /* eslint-disable react/state-in-constructor */
 import React, { Component } from 'react';
 import './App.css';
-import logo from "./images/PAXMDB.svg"
-import Movie from './components/Movie'
+import logo from "./images/PAXMDB.svg";
+import Movie from './components/Movie';
 
 
 class App extends Component {
@@ -17,7 +17,7 @@ class App extends Component {
       const movies = await res.json();
 
       this.setState({
-        movies: movies.results
+        movies: movies.results,
       });
     } catch (e) {
       console.log(e);
