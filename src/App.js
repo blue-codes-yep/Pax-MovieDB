@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import logo from "./images/PAXMDB.svg";
 import Movie from './components/Movie';
-
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 class App extends Component {
 
@@ -26,12 +26,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App" >
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
-        {this.state.movies.map(movie => (<Movie key={movie.id} movie={movie} />))}
-      </div>
+      <Router>
+        <div className="App" >
+          <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+          </header>
+          {this.state.movies.map(movie => (<Movie key={movie.id} movie={movie} />))}
+        </div>
+      </Router>
     );
   }
 }
